@@ -1,0 +1,37 @@
+<div class = "col-sm-3 col-md-2 sidebar">
+    <br></br>
+    <ul class = "nav nav-sidebar">
+      <li class = "sidebar-title">
+        <b>Boas vindas ao amigo X</b>
+      </li>
+      <li class = 'button'>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete%>
+      </li>
+      <li class = 'group-creation'>
+      insira um link aqui
+      </li>
+    </ul>
+   </div>
+
+<style>
+.sidebar{
+  display: flex;
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #29df57; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar-title{
+  color: Black;
+}
+</style>

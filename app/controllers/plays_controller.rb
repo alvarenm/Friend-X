@@ -9,6 +9,10 @@ class PlaysController < ApplicationController
     redirect_to groups_path(current_user.id), method: :get, warning: 'Houve um erro, tente novamente' unless play.success?
   end
 
+  def sorted
+    @sort = Plays::SortPlay.call(play_id: sort_params[:play_id])
+  end
+
   private
 
   def play_params

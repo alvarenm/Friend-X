@@ -15,7 +15,10 @@
     <%plays.each do |play|%>
     <li>
       Primeira Rodada
-      <%= button_to "Sortear Amigo X", sort_plays_path %>
+      <%= button_to "Sortear Amigo X", sort_plays_path(play_id: play.id) %>
+      <%if play.sorted_players.present?%>
+      <%@user_index = play.sorted_players.find_index(current_user)%>
+      <%@friendX = play.sorted_players[@user_index + 1]%>
     </li>
     </ul>
   </div>

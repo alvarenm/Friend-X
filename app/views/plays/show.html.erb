@@ -1,0 +1,56 @@
+<div class = 'external'>
+  <div class = 'sidebar'>
+    <%= render 'components/navbar' %>
+  </div>
+  <div class = 'row'>
+    <div class = 'title-row'>
+      <h2>Bem vindo aos detalhes da rodadas!</h2>
+      <h3>Aqui voce pode visualizar as rodadas de amigoX do seu grupo e cruar uma nova!<h3>
+    </div>
+  </div>
+  <div class = 'row'>
+    <%if @group.present?%>
+    <%plays = Plays.find_all_by(group: @group)%>
+    <ul>
+    <%plays.each do |play|%>
+    <li>
+      Primeira Rodada
+      <%= button_to "Sortear Amigo X", sort_plays_path %>
+    </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+.external{
+  font-family: sans-serif;
+  background-color: Black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin-top: -10px;
+  color: #29df57;
+}
+.title-row{
+  color: #29df57;
+  top: 4vh;
+  position: fixed;
+  left: 30vw;
+}
+.group-card{
+box-shadow: 0 4px 8px 0 #29df57;
+border-radius: 5px;
+background-color: #29df57;
+color: Black;
+align-content: ;
+left: 1px;
+display: grid;
+justify-content: space-evenly;
+min-width: min-content;
+min-width: min-content;
+width: 25vh;
+min-height: min-content;
+}
+</style>

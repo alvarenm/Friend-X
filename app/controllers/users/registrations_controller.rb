@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to show_register_modal_path,  warning: 'Erro nas credenciais, por favor verifique'
     else
       sign_in user
-      redirect_to home_path
+      redirect_to show_main_modal_path
     end 
   end
 

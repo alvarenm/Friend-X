@@ -1,0 +1,77 @@
+<div class = 'external'>
+  <div class = 'sidebar'>
+    <%= render 'components/navbar' %>
+  </div>
+  <div class = 'row'>
+    <div class = 'title-row'>
+      <h2>Bem vindo a sessão dos Grupos!</h2>
+      <h3>Aqui você pode visualizar e criar grupos para realizar os sorteios com seus amigos<h3>
+    </div>
+  </div>
+  <div class = 'row'>
+    <div class = 'col-sm-6' >
+      <%user_groups = current_user.user_groups%>
+      <ul class = 'exibir meus grupos'>
+        <%user_groups.each do |user_group|%>
+        <div class = 'group-card'>
+          <li>
+            <%=user_group.group.group_name%>
+            <%group_id = user_group.group_id%>
+            <%= button_to "Crie uma rodada", plays_path(id: group_id), method: :post %>
+          </li>
+        </div>
+          <br></br>
+      <%end%>
+      </ul>
+    </div>
+    <div class = 'col-sm-6'>
+      <%= form_with url: 'groups', method: :post do |f|%>
+        <div class = 'group-name-input'>
+          <%= f.label :group_name, "Nome do Grupo"%>
+          <%=f.text_field :group_name %>
+        </div>
+        <div class = 'group-participants-input'>
+          <%=f.label :user_emails, 'Insira os emails do usuario'%>
+          <%=f.text_area :user_emails %>
+        </div>
+        <div class = 'submit-button'>
+          <%=f.submit 'Criar Grupo'%>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+<style>
+.external{
+  font-family: sans-serif;
+  background-color: Black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin-top: -10px;
+  color: #29df57;
+}
+.title-row{
+  color: #29df57;
+  top: 4vh;
+  position: fixed;
+  left: 30vw;
+}
+.group-card{
+box-shadow: 0 4px 8px 0 #29df57;
+border-radius: 5px;
+background-color: #29df57;
+color: Black;
+align-content: ;
+left: 1px;
+display: grid;
+justify-content: space-evenly;
+min-width: min-content;
+min-width: min-content;
+width: 25vh;
+min-height: min-content;
+}
+</style>

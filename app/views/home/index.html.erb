@@ -7,15 +7,15 @@
       </div>
     <div class = 'card-content'>
       <div class = 'form-login'>
-        <%= form_with url: user_session_path, method: :create do |f|%>
+        <%= form_with url: user_session_path, method: :post do |f|%>
         <div class = 'email-input'>
           <%= f.label :email, "Email"%>
-          <%=f.text_field :email %>
+          <%=f.email_field :email, required: true %>
         </div>
         <br></br>
         <div class = 'password-input'>
           <%= f.label :password, "Senha"%>
-          <%=f.text_field :password %>
+          <%=f.password_field :password, required: true %>
         </div>
         <br></br>
         <div class = 'buttons'>
@@ -23,6 +23,7 @@
         <%= f.submit 'Login'%>
         </div>
       <% end %>
+      <br></br>
       <div class = register-button>
         <%= button_to "Cadastre-se", show_register_modal_path , :method => :get%>
         </div>
@@ -66,8 +67,15 @@
   padding: 10vh;
 }
 .login-button{
-  justify-content: end;
+  justify-content: center;
   display: flex;
 }
-
+.register-button{
+  justify-content: center;
+  display: flex;
+}
+.form-login{
+  padding-left: 52vh;
+  display: flex;
+}
 </style>

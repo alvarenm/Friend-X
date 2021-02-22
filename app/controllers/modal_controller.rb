@@ -5,6 +5,5 @@ class ModalController < ApplicationController
 
   def show_main
     render 'modal/main'
-    puts(current_user.name)
   end
 end
